@@ -1,15 +1,5 @@
 <?php
-function renderTemplate($templatePath, $templateData = []) {
-    $content = '';
-    extract($templateData);
-    if (file_exists($templatePath)) {
-        ob_start();
-        require($templatePath);
-        $content = ob_get_contents();
-        ob_end_clean();
-    }
-    return $content;
-}
+
 function format_text($number) {
     if ($number > 1000) $number = ceil($number);
     $min_length_string = 3;
@@ -21,5 +11,16 @@ function format_text($number) {
     };
     return $number;
 };
+function searchUserByEmail($postEmail, $users) {
+    foreach ($users as $user) {
+        if ($user['email'] == $postEmail) {
+            return $user;
+        }
+    }
+    if (empty($user)) {
+        return false;
+    }
+}
+
 
 ?>

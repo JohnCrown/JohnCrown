@@ -1,4 +1,5 @@
 <?php
+
 $lots_list = [
     [
         'title' => '2014 Rossignol District Snowboard',

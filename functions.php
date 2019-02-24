@@ -11,4 +11,5 @@ function renderTemplate($templatePath, $templateData = []) {
     }
     return $content;
 }
+
 ?>

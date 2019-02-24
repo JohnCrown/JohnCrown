@@ -43,3 +43,24 @@ function db_get_prepare_stmt($link, $sql, $data = []) {
 
     return $stmt;
 }
+$con = mysqli_connect("localhost", "root", "", "yeti_cave");
+if ($con = false) {
+    print("Ошибка подключения: " . mysqli_connect_error());
+} else {
+    print("Соединение установлено");
+}
+// Запись в базу
+$sql = "INSERT INTO users SET email = 'jasonstealer@ya.ru', password = 'secret'";
+$result = mysqli_query($con, $sql);
+if (!$result) {
+    $error = mysqli_error($con);
+    print("Ошибка MySQL: " . $error);
+} else {
+    $last_id = mysqli_insert_id($con);
+}
+$sql = "SELECT category_id, category_name FROM categories";
+$result = mysqli_query($con, $sql);
+$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+foreach ($rows as $row) {
+    print("Категория: " . $row['name']);
+}

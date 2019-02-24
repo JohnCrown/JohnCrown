@@ -4,6 +4,14 @@ require('functions.php');
 require 'templates/lot_list.php';
 require('templates/functions.php');
 
+
+session_start();
+if (isset($_SESSION['user'])) {
+    $is_auth = true;
+    $user_name = $_SESSION['user']['name'];
+    $user_avatar = $_SESSION['user']['avatar'] ? 'img/uploads/users/' . $_SESSION['user']['avatar']: 'img/user.jpg';
+}
+
 date_default_timezone_set("Europe/Moscow");
 $ts = time();
 $secsInDay = 86400;
@@ -31,7 +39,7 @@ $layout_content = renderTemplate('templates/layout.php', [
     'categories' => $categories,
     'content' => $content,
     'is_auth' => $is_auth,
-    'user_name' => $user_name,
+    'user_name' => $_SESSION['user']['name'],
     'user_avatar' => $user_avatar,
 ]);
 print($layout_content);

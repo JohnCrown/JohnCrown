@@ -1,3 +1,4 @@
+
 <section class="promo">
     <h2 class="promo__title">Нужен стафф для катки?</h2>
     <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
@@ -39,7 +40,7 @@
                 <div class="lot__info">
                     <span class="lot__category"><?=$lots_list[$key]['category_name']; ?></span>
                     <h3 class="lot__title">
-                        <a class="text-link" href="lot.php?lot_id=<?= array_search($key, array_keys($lots_list)); ?>"><?=htmlspecialchars(($lots_list[$key]['title'])) ?></a>
+                    <a class="text-link" href="lot.php?lot_id=<?= array_search($key, array_keys($lots_list)); ?>"><?=htmlspecialchars(($lots_list[$key]['title'])) ?></a>
                     </h3>
                     <div class="lot__state">
                         <div class="lot__rate">
